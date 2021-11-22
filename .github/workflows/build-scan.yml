@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  build-scan:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -15,5 +15,11 @@ jobs:
         image: dm-app-image
         containerfiles: |
           ./src/front-end/Dockerfile
-
+  scan: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: Azure/container-scan@v0
+      with:
+        image-name: dm-app-image
     
