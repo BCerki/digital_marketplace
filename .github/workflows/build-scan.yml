@@ -16,6 +16,7 @@ jobs:
         containerfiles: |
           ./src/front-end/Dockerfile
   scan: 
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
